@@ -1,0 +1,144 @@
+
+<div class="logo">
+    <img src="../../../assets/navbar_Logo.png" width="100" height="50" style="margin-left: 75px;" />
+    <a href="https://www.creative-tim.com" class="simple-text">
+        <div class="logo-img">
+          
+        </div>
+        Smart Otomasyon Admİn
+        <p class="text-warning" style="font-size: 12pt;">Hoşgeldiniz {{name +" "+sureName}}</p>
+    </a>
+    
+</div>
+<div class="sidebar-wrapper">
+    <div *ngIf="isMobileMenu()">
+       
+        
+    </div>
+    <ul class="nav">
+        <li routerLinkActive="active" *ngFor="let menuItem of menuItems" class="{{menuItem.class}} nav-item">
+        <a class="nav-link" [routerLink]="[menuItem.path]">
+            <i class="material-icons">{{menuItem.icon}}</i>
+            <p>{{menuItem.title}}</p>
+        </a>  
+    </li>
+    <hr>
+    <!-- Anasayfa Ayar Accordion -->
+    <li class="nav-item">
+        <a class="nav-link" data-target="#collapseOne" data-toggle="collapse">Anasayfa Ayarları
+            <i class="material-icons">settings</i>
+        </a>
+    </li>
+    <div class="accordion" id="accordionExample">
+        <div id="collapseOne" class="collapse" aria-labelledby="headingOne"
+            data-parent="#accordionExample">
+            <ul class="nav">
+                <li class="nav-item" *ngFor="let item of mainPageSettings">
+                    <a class="nav-link" routerLink="{{item.path}}">
+                        <p>{{item.title}}</p>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!-- sayfa Ayar Accordion -->
+    <li class="nav-item">
+        <a class="nav-link" data-target="#collapseTow" data-toggle="collapse">Sayfa Ayarları
+            <i class="material-icons">settings</i>
+        </a>
+        
+       
+    </li>
+    <div class="accordion" id="accordionExample">
+        <div id="collapseTow" class="collapse" aria-labelledby="headingOne"
+            data-parent="#accordionExample">
+            <ul class="nav">
+                <li class="nav-item" *ngFor="let item of pageSettings">
+                    <a class="nav-link" routerLink="{{item.path}}">
+                        <p>{{item.title}}</p>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <li class="nav-item">
+        <a class="nav-link" routerLink="documents" routerLinkActive="active">Dökümanlar
+            <i class="material-icons">document</i>
+        </a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" data-target="#collapse1" data-toggle="collapse">{{name +" "+sureName}}
+            <i class="material-icons">person</i>
+        </a>
+    </li>
+    <div class="accordion" id="accordionExample">
+        <div id="collapse1" class="collapse" aria-labelledby="headingOne"
+            data-parent="#accordionExample">
+            <ul class="nav">
+                <li class="nav-item" >
+                    <a class="nav-link" routerLink="addUser">
+                        <i class="material-icons">add</i>
+                        <p>Kullanıcı Ekle</p>
+                    </a>
+                </li>
+                <li class="nav-item" >
+                    <a class="nav-link" routerLink="">
+                        <i class="material-icons">vpn_key</i>
+                        <p>Şifre Değiştir</p>
+                    </a>
+                </li>
+                <li class="nav-item" >
+                    <a class="nav-link" (click)="exit()">
+                        <i class="material-icons">exit_to_app</i>
+                        <p class="text-danger">Güvenli Çıkış</p>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+</ul>
+</div>
+    
+        
+
+        
+    
+
+
+
+    <!-- <br>
+    <h6 class="text-center">Anasayfa Sayfa</h6>
+    <hr>
+    
+    <ul class="nav">
+        <li routerLinkActive="active" *ngFor="let page of mainPageSettings" class="{{page.class}} nav-item">
+            <a class="nav-link" [routerLink]="[page.path]">
+                <i class="material-icons">{{page.icon}}</i>
+                <p>{{page.title}}</p>
+            </a>
+        </li>
+        </ul>
+    <br>
+    <h6 class="text-center">Sayfa Ayarları</h6>
+    <hr>
+    
+    <ul class="nav">
+        <li routerLinkActive="active" *ngFor="let page of pageSettings" class="{{page.class}} nav-item">
+            <a class="nav-link" [routerLink]="[page.path]">
+                <i class="material-icons">{{page.icon}}</i>
+                <p>{{page.title}}</p>
+            </a>
+        </li>
+        <hr>
+        <li class="nav-item">
+            <a  class="nav-link btn btn-outline-danger" (click)="exit()">
+            <i class="meterial-icons"></i>
+            <p>ÇIKIŞ</p>
+            </a>
+        </li>   
+        </ul> -->
+
+            <!--  -->
+
+    

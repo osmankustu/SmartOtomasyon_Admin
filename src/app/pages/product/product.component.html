@@ -1,0 +1,72 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-7">
+                <button class="btn btn-outline-success" routerLink="add">Ürün Ekle</button>
+                <div class="card">
+                    <div class="card-header card-header-danger">
+                        <h4 class="card-title ">Ürünler</h4>
+
+                    </div>
+                    <div class="card-body">
+                        <strong>{{productCount}} Kayıt Listelendi.</strong>
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead class=" text-primary">
+                                    <th>Oluşturma Tarihi</th>
+                                    <th>Ürün Adı</th>
+                                    <th>Resim</th>
+                                    <th>İşlemler</th>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let product of productsModel ">
+                                        <td>{{product.createAt |customDate}}</td>
+                                        <td>{{product.name}}</td>
+                                        <td><img src="{{product.imgUri}}" width="100" height="100"></td>
+                                        <td><Button class="btn btn-outline-warning"
+                                                routerLink="update/{{product.id}}">Güncelle</Button> <button
+                                                class="btn btn-outline-danger"
+                                                (click)="deleteProduct(product.id)">SİL</button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-5">
+                <button class="btn btn-outline-success" routerLink="add/productsCategory">Kategori Ekle</button>
+                <div class="card">
+                    <div class="card-header card-header-danger">
+                        <h4 class="card-title ">Kategoriler</h4>
+
+                    </div>
+                    <div class="card-body">
+                        <strong>{{categoryCount}} Kayıt Listelendi.</strong>
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead class=" text-primary">
+                                    <th>Oluşturma Tarihi</th>
+                                    <th>Kategori Adı</th>
+                                    <th>İşlemler</th>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let category of productCategoriesModel ">
+                                        <td>{{category.createAt |customDate}}</td>
+                                        <td>{{category.name}}</td>
+                                        <td><Button class="btn btn-outline-warning"
+                                                routerLink="update/productsCategory/{{category.id}}">Güncelle</Button>
+                                            <button class="btn btn-outline-danger"
+                                                (click)="deleteCategory(category.id)">SİL</button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

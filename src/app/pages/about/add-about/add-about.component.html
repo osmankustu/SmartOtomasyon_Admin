@@ -1,0 +1,77 @@
+<div class="panel-header panel-header-sm">
+</div>
+<div class="main-content">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header card-header-danger">
+                    <h5 class="card-title">Hakkında Yazısı Ekle</h5>
+                </div>
+                <div class="card-body">
+
+                    <form [formGroup]="aboutAddForm">
+
+                        <div class="col-lg-7 col-md-7 col-sm-7">
+                            <div class="input-group input-group-sm mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="inputGroup-sizing-sm">Başlık :</span>
+                                </div>
+                                <input formControlName="title" type="text" [(ngModel)]="title" class="form-control" />
+                            </div>
+
+                            <div class="input-group input-group-sm mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="inputGroup-sizing-sm">Hakkında Yazısı:</span>
+                                </div>
+                                <input formControlName="description" type="text" [(ngModel)]="description"
+                                    class="form-control" />
+                            </div>
+
+                            <div class="input-group input-group-sm mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="inputGroup-sizing-sm">Resim Link :</span>
+                                </div>
+                                <input formControlName="imgUri" [(ngModel)]="uri" type="text" class="form-control" />
+                            </div>
+
+                            <div class="input-group input-group-sm mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="inputGroup-sizing-sm">Sayfa Seçiniz :</span>
+                                </div>
+                                <ng-select  class="col-lg-7" formControlName="pageId">
+                                    <ng-option *ngFor="let page of pageModels" [value]="page.id">{{page.name}}</ng-option>
+                                </ng-select>
+                                
+                            </div>
+
+
+
+                            <button class="btn btn-success" (click)="add()">ekle</button>
+                        </div>
+
+                    </form>
+                    <br>
+                    <div class="col-md-12">
+                        <h4 class="text-center">Önizleme</h4>
+                        <div class="container">
+
+                            <div class="card">
+                                <div class="row">
+                                    <div class="col-lg-5">
+                                        <img class="img-fluid" src="{{uri}}" alt="">
+                                    </div>
+                                    <div class="col-lg-7">
+                                        <div class="card-body">
+                                            <h3 class="card-title">{{title}}</h3>
+                                            <p class="card-text">{{description}}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

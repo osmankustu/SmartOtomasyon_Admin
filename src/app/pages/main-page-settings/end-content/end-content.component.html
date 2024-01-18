@@ -1,0 +1,93 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <button class="btn btn-outline-success" (click)="openAddColapse()">Son İçerik Ekle</button>
+                        <div id="collapseAddOne" class="collapse {{colAddClass}}" aria-labelledby="headingOne"
+                            data-parent="#accordionExample">
+                            <div class="card">
+                                <div class="card-header card-header-success">
+                                    <h4 class="card-title">Son İçerik Ekle</h4>
+                                </div>
+                                <div class="card-body">
+                                    <form [formGroup]="contentAddForm">
+                                        <div class="col-lg-7 col-md-7 col-sm-7">
+                                            <div class="input-group input-group-sm mb-3">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text" id="inputGroup-sizing-sm">Site Adı
+                                                        :</span>
+                                                </div>
+                                                <input formControlName="siteName" type="text" class="form-control" />
+                                            </div>
+
+                                            <div class="input-group input-group-sm mb-3">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text" id="inputGroup-sizing-sm">Başlık
+                                                        :</span>
+                                                </div>
+                                                <input formControlName="title" type="text" class="form-control" />
+                                            </div>
+
+                                            <div class="input-group input-group-sm mb-3">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text" id="inputGroup-sizing-sm">Açıklama
+                                                        :</span>
+                                                </div>
+                                                <input formControlName="description" type="text" class="form-control" />
+                                            </div>
+
+                                            <div class="input-group input-group-sm mb-3">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text" id="inputGroup-sizing-sm">Sayfa
+                                                        Seçiniz :</span>
+                                                </div>
+                                                <ng-select class="col-lg-7" formControlName="homeId">
+                                                    <ng-option *ngFor="let h of homeModels "
+                                                        [value]="h.id">{{h.name}}</ng-option>
+                                                </ng-select>
+
+                                            </div>
+                                            <button class="btn btn-success" (click)="add()">ekle</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header card-header-danger">
+                            <h4 class="card-title ">Son İçerikler</h4>
+
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <thead class=" text-primary">
+                                        <th>Oluşturma Tarihi</th>
+                                        <th>Site Adı</th>
+                                        <th>Başlık</th>
+                                        <th>Açıklama</th>
+                                        <th>İşlemler</th>
+                                    </thead>
+                                    <tbody>
+                                        <tr *ngFor="let m of contentModels ">
+                                            <td>{{m.createAt |customDate}}</td>
+                                            <td>{{m.siteName}}</td>
+                                            <td>{{m.title}}</td>
+                                            <td>{{m.description}}</td>
+                                            <td><Button class="btn btn-outline-warning"
+                                                    routerLink="update/{{m.id}}">Güncelle</Button> <button
+                                                    class="btn btn-outline-danger" (click)="delete(m.id)">SİL</button>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

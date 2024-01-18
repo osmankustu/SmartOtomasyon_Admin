@@ -1,0 +1,44 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header card-header-danger">
+                        <h4 class="card-title ">Ziyaretçi Listesi</h4>
+                    </div>
+                    <div class="card-body">
+                        <strong>{{count}} Kayıt Listelendi.</strong>
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead class=" text-primary">
+                                    <th>Oluşturma Tarihi</th>
+                                    <th>İP Adresi</th>
+                                    <th>Lokasyon Linki</th>
+                                    <th>Ülke Kodu</th>
+                                    <th>Ülke</th>
+                                    <th>İl</th>
+                                    <th>Kıta</th>
+                                    <th>Proxy Durumu</th>
+                                    <th>Site Yolu</th>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let visit of visitors">
+                                        <td>{{visit.createAt |customDate }}</td>
+                                        <td>{{visit.ipAddress}}</td>
+                                        <td><a href="https://www.google.com/maps/@{{visit.latitude}},{{visit.longitude}},14.25z?entry=ttu" target="_blank">Harita'da Görüntüle</a></td>
+                                        <td>{{visit.countryCode}}</td>
+                                        <td>{{visit.countryName}}</td>
+                                        <td>{{visit.regionName}}</td>
+                                        <td>{{visit.continent}}</td>
+                                        <td>{{visit.isProxy}}</td>
+                                        <td>{{visit.onContent}}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

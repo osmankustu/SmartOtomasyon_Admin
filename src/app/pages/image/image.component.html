@@ -1,0 +1,41 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <button class="btn btn-outline-success" routerLink="add">Resim Ekle</button>
+                <div class="card">
+                    <div class="card-header card-header-danger">
+                        <h4 class="card-title ">Uygulama Resimleri</h4>
+
+                    </div>
+                    <div class="card-body">
+                        <strong>{{count}} Kayıt Listelendi.</strong>
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead class=" text-primary">
+                                    <th>Oluşturma Tarihi</th>
+                                    <th>Başlık</th>
+                                    <th>Resim Link</th>
+                                    <th>Kategori</th>
+                                    <th>İşlemler</th>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let image of imageModel ">
+                                        <td>{{image.createAt |customDate}}</td>
+                                        <td>{{image.name}}</td>
+                                        <td><img src="{{image.uri}}" width="100" height="100"></td>
+                                        <td>{{image.imageCategory.name}}</td>
+                                        <td><Button class="btn btn-outline-warning"
+                                                routerLink="update/{{image.id}}">Güncelle</Button> <button
+                                                class="btn btn-outline-danger" (click)="delete(image.id)">SİL</button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

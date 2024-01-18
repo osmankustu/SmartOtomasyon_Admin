@@ -1,0 +1,49 @@
+<div class="panel-header panel-header-sm">
+</div>
+<div class="main-content">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header card-header-danger">
+                    <h5 class="card-title">Etiket Güncelle</h5>
+                </div>
+                <div class="card-body">
+                    <form [formGroup]="updateMetaForm">
+                        <div class="row">
+                            <div class="col-lg-7 col-md-7 col-sm-7">
+                                <div class="input-group input-group-sm mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" id="inputGroup-sizing-sm">Guid :</span>
+                                    </div>
+                                    <input formControlName="id" [(ngModel)]="metaModel.id" disabled="true" type="text"
+                                        class="form-control" />
+                                </div>
+                                <div class="input-group input-group-sm mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" id="inputGroup-sizing-sm">Etiket Adı :</span>
+                                    </div>
+                                    <input formControlName="name" [(ngModel)]="metaModel.name" type="text"
+                                        class="form-control" />
+                                </div>
+                                <div class="input-group input-group-sm mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" id="inputGroup-sizing-sm">Etiket İçeriği :</span>
+                                    </div>
+                                    <textarea class="col-lg-7" formControlName="content" [(ngModel)]="metaModel.content"
+                                        rows="10"></textarea>
+                                </div>
+                                <div class="input-group input-group-sm mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" id="inputGroup-sizing-sm">Ait Sayfa :</span>
+                                    </div>
+                                    <ng-select class="col-lg-7" formControlName="pageId" [(ngModel)]="metaModel.pageId">
+                                        <ng-option *ngFor="let c of pageModels" [value]="c.id">{{c.name}}</ng-option>
+                                    </ng-select>
+                                </div>
+                                <button class="btn btn-warning" (click)="add()">Güncelle</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>

@@ -1,0 +1,68 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-7">
+                <button class="btn btn-outline-success" routerLink="add">Döküman Ekle</button>
+                <div class="card">
+                    <div class="card-header card-header-danger">
+                        <h4 class="card-title ">Dökümanlar</h4>
+                    </div>
+                    <div class="card-body">
+                        <strong>{{dCount}} Kayıt Listelendi.</strong>
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead class=" text-primary">
+                                    <th>Oluşturma Tarihi</th>
+                                    <th>Döküman Adı</th>
+                                    <th>İşlemler</th>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let d of documents ">
+                                        <td>{{d.createAt |customDate}}</td>
+                                        <td>{{d.name}}</td>
+                                        <td><Button class="btn btn-outline-warning"
+                                                routerLink="update/{{d.id}}">Güncelle</Button> <button
+                                                class="btn btn-outline-danger"
+                                                (click)="deleteDocument(d.id)">SİL</button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-5">
+                <button class="btn btn-outline-success" routerLink="addCategory">Döküman Kategori Ekle</button>
+                <div class="card">
+                    <div class="card-header card-header-danger">
+                        <h4 class="card-title ">Kategoriler</h4>
+                    </div>
+                    <div class="card-body">
+                        <strong>{{cCount}} Kayıt Listelendi.</strong>
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead class=" text-primary">
+                                    <th>Oluşturma Tarihi</th>
+                                    <th>Kategori Adı</th>
+                                    <th>İşlemler</th>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let category of documentCategories ">
+                                        <td>{{category.createAt |customDate}}</td>
+                                        <td>{{category.name}}</td>
+                                        <td><Button class="btn btn-outline-warning"
+                                                routerLink="updateCategory/{{category.id}}">Güncelle</Button>
+                                            <button class="btn btn-outline-danger"
+                                                (click)="deleteCategory(category.id)">SİL</button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

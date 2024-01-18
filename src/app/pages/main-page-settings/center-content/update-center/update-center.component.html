@@ -1,0 +1,66 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="card">
+                        <div class="card-header card-header-warning">
+                            <h4 class="card-title">Orta İçerik Güncelle</h4>
+                        </div>
+                        <div class="card-body">
+                            <form [formGroup]="contentUpdateForm">
+                                <div class="col-lg-7 col-md-7 col-sm-7">
+
+                                    <div class="input-group input-group-sm mb-3">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text" id="inputGroup-sizing-sm">Guid
+                                                :</span>
+                                        </div>
+                                        <input formControlName="id" [(ngModel)]="contentModel.id" disabled="true" type="text" class="form-control" />
+                                    </div>
+
+                                    <div class="input-group input-group-sm mb-3">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text" id="inputGroup-sizing-sm">Site Adı
+                                                :</span>
+                                        </div>
+                                        <input formControlName="siteName" [(ngModel)]="contentModel.siteName" type="text" class="form-control" />
+                                    </div>
+
+                                    <div class="input-group input-group-sm mb-3">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text" id="inputGroup-sizing-sm">Başlık
+                                                :</span>
+                                        </div>
+                                        <input formControlName="title" [(ngModel)]="contentModel.title" type="text" class="form-control" />
+                                    </div>
+
+                                    <div class="input-group input-group-sm mb-3">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text" id="inputGroup-sizing-sm">Açıklama
+                                                :</span>
+                                        </div>
+                                        <input formControlName="description" [(ngModel)]="contentModel.description" type="text" class="form-control" />
+                                    </div>
+
+                                    <div class="input-group input-group-sm mb-3">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text" id="inputGroup-sizing-sm">Sayfa
+                                                Seçiniz :</span>
+                                        </div>
+                                        <ng-select class="col-lg-7" formControlName="homeId" [(ngModel)]="contentModel.homeId">
+                                            <ng-option *ngFor="let h of homeModels "
+                                                [value]="h.id">{{h.name}}</ng-option>
+                                        </ng-select>
+
+                                    </div>
+                                    <button class="btn btn-warning" (click)="update()">Güncelle</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

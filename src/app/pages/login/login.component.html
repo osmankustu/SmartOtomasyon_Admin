@@ -1,0 +1,46 @@
+<style>
+    .bd-placeholder-img {
+      font-size: 1.125rem;
+      text-anchor: middle;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+    }
+
+    @media (min-width: 768px) {
+      .bd-placeholder-img-lg {
+        font-size: 3.5rem;
+      }
+    }
+  </style>
+<div class="col-md-12">
+    <div class="d-flex p-5"></div>
+    <div class="d-flex p-5"></div>
+<form class="form-signin" [formGroup]="loginForm">
+    <div class="text-center mb-4">
+      <img class="mb-4" src="../../../assets/navbar_Logo.png" alt="" width="300" height="150">
+      <h1 class="h3 mb-3 font-weight-normal">SMART OTOMASYON ADMİN</h1>
+      <p>Size Sağlanmış Olan E-Posta ve Şifrenizi Giriniz ! </p>
+    </div>
+  
+    <div class="form-label-group">
+      <input type="email" formControlName="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+      <label for="inputEmail">Email address</label>
+    </div>
+  
+    <div class="form-label-group">
+      <input type="password" formControlName="password" id="inputPassword" class="form-control" placeholder="Password" required>
+      <label for="inputPassword">Password</label>
+    </div>
+  
+    <div class="checkbox mb-3">
+      <label>
+        <input type="checkbox" value="remember-me"> Beni Hatırla
+      </label>
+    </div>
+    <button class="btn btn-lg btn-success btn-block" (click)="login()" type="submit">Giriş Yap</button>
+    <p class="mt-5 mb-3 text-muted text-center">&copy; {{currentYear}} <a href="">Smart Otomasyon</a>, All Rights Reserved.</p>
+    <p class="mt-5 mb-3 text-muted text-center">Developed By <a href="">Osman KUŞTU</a></p>
+  </form>
+</div>

@@ -1,0 +1,68 @@
+<div class="panel-header panel-header-sm">
+</div>
+<div class="main-content">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header card-header-danger">
+                    <h5 class="card-title">Uygulama Resim Ekle</h5>
+                </div>
+                <div class="card-body">
+
+                    <form [formGroup]="imageAddForm">
+                        <div class="row">
+                            <div class="col-lg-7 col-md-7 col-sm-7">
+                                <div class="input-group input-group-sm mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" id="inputGroup-sizing-sm">Başlık :</span>
+                                    </div>
+                                    <input formControlName="name" type="text" [(ngModel)]="title"
+                                        class="form-control" />
+                                </div>
+                                <div class="input-group input-group-sm mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" id="inputGroup-sizing-sm">Resim Link :</span>
+                                    </div>
+                                    <input formControlName="uri" [(ngModel)]="uri" type="text" class="form-control" />
+                                </div>
+                                <div class="input-group input-group-sm mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" id="inputGroup-sizing-sm">Resim Kategori :</span>
+                                    </div>
+                                    <ng-select class="col-lg-7" formControlName="imageCategoryId">
+                                        <ng-option *ngFor="let c of imageCategories"
+                                            [value]="c.id">{{c.name}}</ng-option>
+                                    </ng-select>
+                                </div>
+
+                                <div class="input-group input-group-sm mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" id="inputGroup-sizing-sm">Anasayfa Seç :</span>
+                                    </div>
+                                    <ng-select class="col-lg-7" formControlName="homeId">
+                                        <ng-option *ngFor="let c of homesModel"
+                                            [value]="c.id">{{c.name}}</ng-option>
+                                    </ng-select>
+                                </div>
+
+
+
+                                <button class="btn btn-success" (click)="add()">ekle</button>
+                            </div>
+                            <div class="col-lg-1 col-md-1 col-sm-1"></div>
+                            <div class="col-lg-4 col-md-4 col-sm-4">
+                                <h4>Önizleme</h4>
+                                <div class="card text-center" style="width: 18rem;">
+                                    <img class="card-img-top" src="{{uri}}" alt="">
+                                    <h5 class="card-title">{{title}} </h5>
+                                    <div class="card-body">
+
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>

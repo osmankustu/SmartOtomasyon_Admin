@@ -1,0 +1,48 @@
+<div class="panel-header panel-header-sm">
+</div>
+<div class="main-content">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header card-header-danger">
+                    <h5 class="card-title">Ürün Kategori Güncelle</h5>
+                </div>
+                <div class="card-body">
+
+                    <form [formGroup]="productCategoryUpdateForm">
+
+                        <div class="col-lg-7 col-md-7 col-sm-7">
+                            <div class="input-group input-group-sm mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="inputGroup-sizing-sm">Guid:</span>
+                                </div>
+                                <input formControlName="id" type="text" [(ngModel)]="productCategoryModel.id"
+                                    class="form-control" disabled="true" />
+                            </div>
+
+                            <div class="input-group input-group-sm mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="inputGroup-sizing-sm">Kategori Adı:</span>
+                                </div>
+                                <input formControlName="name" type="text" [(ngModel)]="productCategoryModel.name"
+                                    class="form-control" />
+                            </div>
+
+                            <div class="input-group input-group-sm mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="inputGroup-sizing-sm">Sayafa Seçiniz :</span>
+                                </div>
+                               <ng-select class="col-lg-7" formControlName="pageId" [(ngModel)]="productCategoryModel.pageId">
+                                <ng-option *ngFor="let page of pageModels" [value]="page.id">{{page.name}}</ng-option>
+                               </ng-select>
+                            </div>
+
+                            <button class="btn btn-warning" (click)="update()">Güncelle</button>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

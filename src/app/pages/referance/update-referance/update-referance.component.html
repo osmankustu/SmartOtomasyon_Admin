@@ -1,0 +1,60 @@
+<div class="panel-header panel-header-sm">
+</div>
+<div class="main-content">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header card-header-danger">
+                    <h5 class="card-title">Referans Güncelle</h5>
+                </div>
+                <div class="card-body">
+
+                    <form [formGroup]="referanceUpdateForm">
+                        <div class="col-lg-7 col-md-7 col-sm-7">
+                            <div class="input-group input-group-sm mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="inputGroup-sizing-sm">GuID : </span>
+                                </div>
+                                <input formControlName="id" [(ngModel)]="referanceModel.id" type="text" disabled="true" class="form-control" />
+                            </div>
+                            <div class="input-group input-group-sm mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="inputGroup-sizing-sm">Başlık : </span>
+                                </div>
+                                <input formControlName="title" [(ngModel)]="referanceModel.title" type="text" class="form-control" />
+                            </div>
+                            <div class="input-group input-group-sm mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="inputGroup-sizing-sm">Açıklama : </span>
+                                </div>
+                                <input formControlName="description" [(ngModel)]="referanceModel.description" type="text" class="form-control" />
+                            </div>
+                            <div class="input-group input-group-sm mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="inputGroup-sizing-sm">Logo Link : </span>
+                                </div>
+                                <input formControlName="logoUri" [(ngModel)]="referanceModel.logoUri" type="text" class="form-control" />
+                            </div>
+                            <div class="input-group input-group-sm mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="inputGroup-sizing-sm">Site Link : </span>
+                                </div>
+                                <input formControlName="siteUri" type="text" [(ngModel)]="referanceModel.siteUri" class="form-control" />
+                            </div>
+
+                            <div class="input-group input-group-sm mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="inputGroup-sizing-sm">Sayafa Seçiniz :</span>
+                                </div>
+                               <ng-select class="col-lg-7" formControlName="pageId" [(ngModel)]="referanceModel.pageId">
+                                <ng-option *ngFor="let page of pageModels" [value]="page.id">{{page.name}}</ng-option>
+                               </ng-select>
+                            </div>
+
+
+                            <button class="btn btn-warning" (click)="update()">GÜNCELLE</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>

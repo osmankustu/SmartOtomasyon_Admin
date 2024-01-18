@@ -1,0 +1,84 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+        <div class="col-md-12">
+            <button class="btn btn-outline-success" routerLink="addPage">Sayfa Ekle</button>
+            <div class="card">
+                <div class="card-header card-header-danger">
+                    <h4 class="card-title ">Sayfalar</h4>
+                </div>
+                <!-- <div class="container">
+                    <div *ngIf="visible == true" class="alert alert-warning"  role="alert">
+                        <h6>DİKKAT !</h6>
+                        Sadece 1 adet footer Ekleyiniz. Yoksa site sonunda birden fazla sayfa sonu gözükecektir.
+                      </div>
+                </div>   -->
+                <div class="card-body">
+                    <strong>{{pageCount}} Kayıt Listelendi.</strong>
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead class=" text-primary">
+                                <th>Oluşturma Tarihi</th>
+                                <th>Sayfa Adı</th>
+                                <th>İşlemler</th>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let p of pageModels ">
+                                    <td>{{p.createAt}}</td>
+                                    <td>{{p.name}}</td>
+                                    <td><Button class="btn btn-outline-warning"
+                                            routerLink="updatePage/{{p.id}}">Güncelle</Button> <button
+                                            class="btn btn-outline-danger" (click)="deletePage(p.id)">SİL</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+            <div class="col-md-12">
+                <button class="btn btn-outline-success" routerLink="addMeta">Etiket Ekle</button>
+                <div class="card">
+                    <div class="card-header card-header-danger">
+                        <h4 class="card-title ">Meta Etiketleri </h4>
+                        <div class="col-3">
+                            <form class="form-inline my-2 my-lg-0">
+                                <input class="form-control mr-sm-2" type="search" placeholder="Sayfa İsmi" [(ngModel)]="filterText" aria-label="Search">
+                              </form>
+                        </div>
+
+                    </div>
+                    <div class="card-body">
+                        <strong>{{metaCount}} Kayıt Listelendi.</strong>
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead class=" text-primary">
+                                    <th>Oluşturma Tarihi</th>
+                                    <th>Ait Olduğu Sayfa</th>
+                                    <th>Etiket Adı</th>
+                                    <th>İçerik</th>
+                                    
+                                    <th>İşlemler</th>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let m of metaModels |metaSerch:filterText">
+                                        <td>{{m.createAt}}</td>
+                                        <td>{{m.page.name }}</td>
+                                        <td>{{m.name}}</td>
+                                        <td>{{m.content}}</td>
+                                        <td><Button class="btn btn-outline-warning"
+                                                routerLink="updateMeta/{{m.id}}">Güncelle</Button> <button
+                                                class="btn btn-outline-danger" (click)="deleteMeta(m.id)">SİL</button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</div>

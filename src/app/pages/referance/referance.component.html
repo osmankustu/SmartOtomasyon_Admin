@@ -1,0 +1,38 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <button class="btn btn-outline-success" routerLink="add">Referans Ekle</button>
+                <div class="card">
+                    <div class="card-header card-header-danger">
+                        <h4 class="card-title ">Referanslar</h4>
+                       
+                    </div>
+                    <div class="card-body">
+                        <strong>{{count}} Kayıt Listelendi.</strong>
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead class=" text-primary">
+                                    <th>Oluşturma Tarihi</th>
+                                    <th>Başlık</th>
+                                    <th>Logo Resmi</th>
+                                    <th>Site Linki</th>
+                                    <th>İşlemler</th>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let referance of referanceModel">
+                                        <td>{{referance.createAt |customDate}}</td>
+                                        <td>{{referance.title}}</td>
+                                        <td><img src="{{referance.logoUri}}" width="100" height="100"> {{referance.logoUri}}</td>
+                                        <td>{{referance.siteUri}}</td>
+                                        <td><Button class="btn btn-outline-warning" routerLink="update/{{referance.id}}">Güncelle</Button> <button class="btn btn-outline-danger" (click)="delete(referance.id)">SİL</button></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

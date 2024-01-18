@@ -1,0 +1,112 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="col-md-12">
+            <button class="btn btn-outline-success" routerLink="add">Footer Ekle</button>
+            <div class="card">
+                <div class="card-header card-header-danger">
+                    <h4 class="card-title ">Footerlar</h4>
+                </div>
+                <!-- <div class="container">
+                    <div *ngIf="visible == true" class="alert alert-warning"  role="alert">
+                        <h6>DİKKAT !</h6>
+                        Sadece 1 adet footer Ekleyiniz. Yoksa site sonunda birden fazla sayfa sonu gözükecektir.
+                      </div>
+                </div>   -->
+                <div class="card-body">
+                    <strong>{{footercount}} Kayıt Listelendi.</strong>
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead class=" text-primary">
+                                <th>Oluşturma Tarihi</th>
+                                <th>Site Adı</th>
+                                <th>Adres</th>
+                                <th>E-Posta Adresi</th>
+                                <th>İşlemler</th>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let f of footerModel">
+                                    <td>{{f.createAt |customDate}}</td>
+                                    <td>{{f.name}}</td>
+                                    <td>{{f.adress}}</td>
+                                    <td>{{f.mail}}</td>
+                                    <td><Button class="btn btn-outline-warning"
+                                            routerLink="update/{{f.id}}">Güncelle</Button> <button
+                                            class="btn btn-outline-danger" (click)="deleteFooter(f.id)">SİL</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <button class="btn btn-outline-success" routerLink="addSocial">Link Ekle</button>
+                <div class="card">
+                    <div class="card-header card-header-danger">
+                        <h4 class="card-title ">Sosyal Medya Linkleri </h4>
+
+                    </div>
+                    <div class="card-body">
+                        <strong>{{socialcount}} Kayıt Listelendi.</strong>
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead class=" text-primary">
+                                    <th>Oluşturma Tarihi</th>
+                                    <th>Adı</th>
+                                    <th>URL Adresi</th>
+                                    <th>İşlemler</th>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let s of socialModel ">
+                                        <td>{{s.createAt |customDate}}</td>
+                                        <td>{{s.name}}</td>
+                                        <td>{{s.uri}}</td>
+                                        <td><Button class="btn btn-outline-warning"
+                                                routerLink="update/social/{{s.id}}">Güncelle</Button> <button
+                                                class="btn btn-outline-danger" (click)="deleteSocial(s.id)">SİL</button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <button class="btn btn-outline-success" routerLink="addPhone">Telefon Numarası Ekle</button>
+                <div class="card">
+                    <div class="card-header card-header-danger">
+                        <h4 class="card-title ">İletişim Adresleri</h4>
+
+                    </div>
+                    <div class="card-body">
+                        <strong>{{phonecount}} Kayıt Listelendi.</strong>
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead class=" text-primary">
+                                    <th>Oluşturma Tarihi</th>
+                                    <th>Adı Soyadı</th>
+                                    <th>Telefon Numarası</th>
+                                    <th>İşlemler</th>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let p of contactModel ">
+                                        <td>{{p.createAt |customDate}}</td>
+                                        <td>{{p.name}}</td>
+                                        <td>{{p.phone}}</td>
+                                        <td><Button class="btn btn-outline-warning"
+                                                routerLink="update/phone/{{p.id}}">Güncelle</Button> <button
+                                                class="btn btn-outline-danger" (click)="deleteContact(p.id)">SİL</button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

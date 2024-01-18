@@ -1,0 +1,54 @@
+<div class="panel-header panel-header-sm">
+</div>
+<div class="main-content">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header card-header-danger">
+                    <h5 class="card-title">Döküman Güncelle</h5>
+                </div>
+                <div class="card-body">
+
+                    <form [formGroup]="documentUpdateForm">
+
+                        <div class="col-lg-7 col-md-7 col-sm-7">
+                            <div class="input-group input-group-sm mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="inputGroup-sizing-sm">Guid:</span>
+                                </div>
+                                <input formControlName="id" type="text" disabled="true" [(ngModel)]="document.id" class="form-control" />
+                            </div>
+
+                            <div class="input-group input-group-sm mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="inputGroup-sizing-sm">Döküman Adı:</span>
+                                </div>
+                                <input formControlName="name" type="text" [(ngModel)]="document.name" class="form-control" />
+                            </div>
+
+                            <div class="input-group input-group-sm mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="inputGroup-sizing-sm">Dosya Linki:</span>
+                                </div>
+                                <input formControlName="uri" type="text" [(ngModel)]="document.uri" class="form-control" />
+                            </div>
+
+                            <div class="input-group input-group-sm mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="inputGroup-sizing-sm">Kategori Seçiniz :</span>
+                                </div>
+                               <ng-select class="col-lg-7" formControlName="documentCategoryId" [(ngModel)]="document.documentCategoryId">
+                                <ng-option *ngFor="let page of categories" [value]="page.id">{{page.name}}</ng-option>
+                               </ng-select>
+                            </div>
+
+                            <button class="btn btn-warning" (click)="update()">Güncelle</button>
+                        </div>
+
+                    </form>
+                    <br>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

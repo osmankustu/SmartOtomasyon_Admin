@@ -1,0 +1,52 @@
+<div class="panel-header panel-header-sm">
+</div>
+<div class="main-content">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header card-header-danger">
+                    <h5 class="card-title">Telefon Numarası Güncelle</h5>
+                </div>
+                <div class="card-body">
+
+                    <form [formGroup]="phoneUpdateForm">
+                        <div class="col-lg-7 col-md-7 col-sm-7">
+                            <div class="input-group input-group-sm mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="inputGroup-sizing-sm">Guid :</span>
+                                </div>
+                                <input formControlName="id" [(ngModel)]="phoneModel.id" disabled="true" type="text" class="form-control" />
+                            </div>
+
+                            <div class="input-group input-group-sm mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="inputGroup-sizing-sm">Adı Soyadı :</span>
+                                </div>
+                                <input formControlName="name" [(ngModel)]="phoneModel.name" type="text" class="form-control" />
+                            </div>
+
+                            <div class="input-group input-group-sm mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="inputGroup-sizing-sm">Telefon Numarası :</span>
+                                </div>
+                                <input formControlName="phone" [(ngModel)]="phoneModel.phone" type="text" class="form-control" />
+                            </div>
+
+                            <div class="input-group input-group-sm mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="inputGroup-sizing-sm">Footer :</span>
+                                </div>
+                               <ng-select class="col-lg-6" formControlName="footerId" [(ngModel)]="phoneModel.footerId">
+                                <ng-option *ngFor="let footer of footerModels" [value]="footer.id">{{footer.name}}</ng-option>
+                               </ng-select>
+                            </div>
+                            
+
+
+
+                            <button class="btn btn-warning" (click)="update()">Güncelle</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>

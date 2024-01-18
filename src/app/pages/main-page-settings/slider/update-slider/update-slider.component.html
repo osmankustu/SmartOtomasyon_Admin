@@ -1,0 +1,60 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="card">
+                        <div class="card-header card-header-warning">
+                            <h4 class="card-title">Anasayfa Slayt Güncelle</h4>
+                        </div>
+                        <div class="card-body">
+                            <form [formGroup]="sliderUpdateForm">
+                                <div class="col-lg-7 col-md-7 col-sm-7">
+                                    <div class="input-group input-group-sm mb-3">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text" id="inputGroup-sizing-sm">Guid
+                                                :</span>
+                                        </div>
+                                        <input formControlName="id" [ngModel]="sliderModel.id" type="text" class="form-control" />
+                                    </div>
+
+                                    <div class="input-group input-group-sm mb-3">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text" id="inputGroup-sizing-sm">Adı
+                                                :</span>
+                                        </div>
+                                        <input formControlName="name" [ngModel]="sliderModel.name" type="text" class="form-control" />
+                                    </div>
+
+                                    <div class="input-group input-group-sm mb-3">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text" id="inputGroup-sizing-sm">Resim Linki
+                                                :</span>
+                                        </div>
+                                        <input formControlName="uri" [ngModel]="sliderModel.uri" type="text" class="form-control" />
+                                    </div>
+
+                                    <div class="input-group input-group-sm mb-3">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text" id="inputGroup-sizing-sm">Sayfa
+                                                Seçiniz :</span>
+                                        </div>
+                                        <ng-select class="col-lg-7" formControlName="homeId" [(ngModel)]="sliderModel.homeId">
+                                            <ng-option *ngFor="let h of homeModels "
+                                                [value]="h.id">{{h.name}}</ng-option>
+                                        </ng-select>
+
+                                    </div>
+
+
+
+                                    <button class="btn btn-warning" (click)="update()">Güncelle</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

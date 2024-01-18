@@ -1,0 +1,61 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="card">
+                    <div class="card-header card-header-danger">
+                        <h4 class="card-title ">Gelen İletiler</h4>
+                    </div>
+                    <div class="card-body">
+                        <ul class="list-group">
+                            <li *ngFor="let m of mails" class="list-group-item " (click)="getByIdMail(m.id)" >{{m.email}}</li>
+                          </ul>
+                    </div>
+                </div>
+            </div>
+            <div *ngIf="mail != null" class="col-md-9">
+                <div class="card">
+                    <div class="card-header card-header-danger">
+                        <h5 class="card-title ">Gönderen : {{mail.email}}</h5>
+                        <h5 class="card-category"> Adı Soyadı : {{mail.nameSureName}}</h5>
+                        <h5 *ngIf="mail.phone != '-'" class="card-category"> Telefon : {{mail.phone}}</h5>
+                    </div>
+                    <div class="card-body">
+                        <h5>Konu : {{mail.subject}}</h5>
+                        <h5>Mesaj :</h5>
+                        <p class="card-text">{{mail.message}}</p>
+                    </div>
+                    <div class="card-footer">
+                        Tarih : {{mail.createAt |customDate}}
+                        <a class="btn btn-outline-success" href="mailto:{{mail.email}}">Cevapla</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- <div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-3 ">
+                <h4>Gelen İletiler</h4>
+                <ul class="list-group">
+                    <li *ngFor="let m of mails" class="list-group-item" routerLink="{{m.id}}" routerLinkActive="active">{{m.email}}</li>
+                    
+                  </ul>
+            </div>
+            <div *ngIf="mail !=null" class="col-lg-9">
+                <div class="card">
+                    <h6 class="card-title">Gönderen : {{mail.email}}</h6>
+                    <hr>
+                    <div class="card-body">
+                        <h5></h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div> -->

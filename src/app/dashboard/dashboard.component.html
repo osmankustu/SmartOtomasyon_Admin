@@ -1,0 +1,104 @@
+<div class="main-content">
+  <div class="container-fluid">
+      <div class="row">
+          <div class="col-lg-12 col-md-6 col-sm-6">
+              <div class="card card-stats">
+                  <div class="card-header card-header-warning card-header-icon">
+                      <div class="card-icon">
+                        <i class="material-icons">person_add</i>
+                      </div>
+                      <div class="text-center">
+                      <h3 class="card-title">Bu Günki Ziyaretçi</h3>
+                      <h3 class="card-title">{{data.count}}</h3>
+                    </div>
+                  </div>
+                  <div class="card-footer">
+                      <div class="stats">
+                          <i class="material-icons text-success">update</i>
+                          <a href="javascript:void(0)">Şimdi Güncellendi..</a>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-6 col-md-12 col-sm-3">
+            <div class="card card-chart">
+                <div class="card-header card-header-warning">
+                  <canvas  id="salesChart">{{chart}}</canvas>
+                </div>
+                <div class="card-body">
+                    <h4 class="card-title">Aylık Ziyaretçi </h4>
+                    <p class="card-category">Genel Trafik Performansı %45 </p>
+                </div>
+                <div class="card-footer">
+                    <div class="stats">
+                        <i class="material-icons">access_time</i>Şimdi Güncellendi
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6 col-md-12">
+            <div class="card">
+                <div class="card-header card-header-warning">
+                    <h4 class="card-title">Son Admin Giriş Denemeleri</h4>
+                </div>
+                <div class="card-body table-responsive">
+                    <table class="table table-hover">
+                        <thead class="text-warning">
+                          <th>IP Adresi</th>
+                          <th>Lokasyon Linki</th>
+                          <th>Ülke</th>
+                          <th>İl</th>
+                          <th>Tarih</th>
+                        </thead>
+                        <tbody>
+                          <tr *ngFor="let visit of dashdata.lastLogin">
+                              <td>{{visit.ipAddress}}</td>
+                              <td><a href="https://www.google.com/maps/@{{visit.latitude}},{{visit.longitude}},14.25z?entry=ttu" target="_blank">Harita'da Görüntüle</a></td>
+                              <td>{{visit.countryName}}</td>
+                              <td>{{visit.regionName}}</td>
+                              <td>{{visit.createAt |customDateAdmin}}</td>
+                          </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+      </div>
+      <div class="row">
+          <div class="col-lg-12 col-md-12">
+              <div class="card">
+                  <div class="card-header card-header-tabs card-header-primary">
+                     <h4 class="card-title">Son 5 Ziyaretçi</h4>
+                  </div>
+                  <div class="card-body">
+                    <div class="card-body table-responsive">
+                        <table class="table table-hover">
+                            <thead class="text-warning">
+                                <th>IP Adresi</th>
+                                <th>Lokasyon Linki</th>
+                                <th>Ülke</th>
+                                <th>İl</th>
+                                <th>Site Yolu</th>
+                                <th>Tarih</th>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let visit of dashdata.lastVisit">
+                                    <td>{{visit.ipAddress}}</td>
+                                    <td><a href="https://www.google.com/maps/@{{visit.latitude}},{{visit.longitude}},14.25z?entry=ttu" target="_blank">Harita'da Görüntüle</a></td>
+                                    <td>{{visit.countryName}}</td>
+                                    <td>{{visit.regionName}}</td>
+                                    <td>{{visit.onContent}}</td>
+                                    <td>{{visit.createAt |customDateAdmin}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                  </div>
+              </div>
+          </div>
+          
+      </div>
+  </div>
+</div>
