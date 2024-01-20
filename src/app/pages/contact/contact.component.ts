@@ -42,18 +42,21 @@ export class ContactComponent implements OnInit {
     this.socialService.GetAll().subscribe(response=>{
       this.socialModel = response.data
       this.auth.stateChecker();
+      this.socialcount = this.socialModel.length
     })
   }
 
   getAllContact(){
     this.contactService.GetAll().subscribe(response=>{
       this.contactModel = response.data
+      this.phonecount = this.contactModel.length
     })
   }
 
   getAllFooter(){
     this.footerService.GetAll().subscribe(response=>{
       this.footerModel = response.data
+      this.footercount = this.footerModel.length
     })
   }
 

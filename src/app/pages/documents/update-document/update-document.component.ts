@@ -63,7 +63,7 @@ export class UpdateDocumentComponent implements OnInit {
       let command = Object.assign(this.documentUpdateForm.value);
       this.documentService.Update(command).subscribe(response=>{
         this.toastrService.success(response.message,"Başarılı !");
-        setTimeout(()=>this.router.navigate(["documents"]),1000);
+        setTimeout(()=>this.router.navigate(["admin/documents"]),1000);
       },responseError=>{
         this.toastrService.error(responseError.message,"Bir Hata Oluştu !");
       })

@@ -28,6 +28,7 @@
                     <div class="card-footer">
                         Tarih : {{mail.createAt |customDate}}
                         <a class="btn btn-outline-success" href="mailto:{{mail.email}}">Cevapla</a>
+                        <a class="btn btn-outline-danger" (click)="deleteMail(mail.id)">Sil</a>
                     </div>
                 </div>
             </div>

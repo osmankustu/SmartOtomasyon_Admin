@@ -11,12 +11,22 @@
 
                     <form [formGroup]="socialAddForm">
                         <div class="col-lg-7 col-md-7 col-sm-7">
+
                             <div class="input-group input-group-sm mb-3">
                                 <div class="input-group-prepend">
-                                    <span class="input-group-text" id="inputGroup-sizing-sm">Class Name :</span>
+                                    <span class="input-group-text" id="inputGroup-sizing-sm">Sosyal Medya Adı :</span>
                                 </div>
                                 <input formControlName="name" type="text" class="form-control" />
                             </div>
+
+                            <div class="input-group input-group-sm mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="inputGroup-sizing-sm">Sınıf Adı :</span>
+                                </div>
+                                <input formControlName="className" type="text" class="form-control" />
+                            </div>
+
+                            
 
                             <div class="input-group input-group-sm mb-3">
                                 <div class="input-group-prepend">
@@ -27,7 +37,7 @@
 
                             <div class="input-group input-group-sm mb-3">
                                 <div class="input-group-prepend">
-                                    <span class="input-group-text" id="inputGroup-sizing-sm">Footer :</span>
+                                    <span class="input-group-text" id="inputGroup-sizing-sm">Footer Seçiniz :</span>
                                 </div>
                                <ng-select class="col-lg-6" formControlName="footerId">
                                 <ng-option *ngFor="let footer of footerModels" [value]="footer.id">{{footer.name}}</ng-option>

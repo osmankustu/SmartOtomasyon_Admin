@@ -63,7 +63,7 @@ export class AddImageComponent implements OnInit {
       this.imageService.Add(command).subscribe(
         (response) => {
           this.toastrService.success(response.message, "Başarılı !");
-          setTimeout(() => this.router.navigate(["applicationImage"]), 1000);
+          setTimeout(() => this.router.navigate(["admin/applicationImage"]), 1000);
         },
         (responseError) => {
           this.toastrService.error(responseError.messsage, "Bir Hata Oluştu !");

@@ -24,16 +24,13 @@ export class DashboardComponent implements OnInit {
   ngOnInit() {
     this.getDataone();
     this.getData();
-    this.auth.stateChecker();
     this.createChart();
-
   }
 
   getDataone(){
     this.dashboardService.getDashboardData().subscribe((response) => {
       this.dashdata = response.data;
-      this.dashdata.lastLogin.reverse();
-      this.dashdata.lastVisit.reverse();
+      this.auth.stateChecker();
     })
   }
 

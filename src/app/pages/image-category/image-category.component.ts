@@ -26,6 +26,7 @@ export class ImageCategoryComponent implements OnInit {
     this.imageCategoryService.GetAll().subscribe((response) => {
       this.imageCategory = response.data;
       this.auth.stateChecker();
+      this.count = this.imageCategory.length
     });
   }
 

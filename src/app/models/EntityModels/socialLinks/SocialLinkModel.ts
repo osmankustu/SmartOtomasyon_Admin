@@ -4,4 +4,5 @@ export interface SocialLinkModel extends BaseEntity{
     name:string
     uri:string
     footerId:string
+    className:string
 }

@@ -35,11 +35,13 @@
                                     </ng-select>
                                 </div>
 
-                                <div class="input-group input-group-sm mb-3">
+                                <p class="text-info">Bilgi! : Aşağıdaki seçeneği resmin anasayfadaki son slayt bölümünde gözükmesini istiyorsanız değiştirin !</p>
+                                <div class="input-group input-group-sm mb-3">                                    
                                     <div class="input-group-prepend">
                                         <span class="input-group-text" id="inputGroup-sizing-sm">Anasayfa Seç :</span>
                                     </div>
                                     <ng-select class="col-lg-7" formControlName="homeId">
+                                        <ng-option value="" selected >Anasayfada Gösterme</ng-option>
                                         <ng-option *ngFor="let c of homesModel"
                                             [value]="c.id">{{c.name}}</ng-option>
                                     </ng-select>

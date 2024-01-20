@@ -65,7 +65,7 @@ export class UpdateReferanceComponent implements OnInit {
       this.referanceService.Update(command).subscribe(
         (response) => {
           this.toastrService.success(response.message, "BAŞARILI");
-          setTimeout(() => this.router.navigate(["referance"]), 1000);
+          setTimeout(() => this.router.navigate(["admin/referance"]), 1000);
         },
         (responseError) => {
           this.toastrService.error(responseError.message, "Bir Hata Oluştu !");

@@ -47,7 +47,7 @@ export class AddImageCategoryComponent implements OnInit {
         if (response.success) {
           this.toastrService.success(response.message, "Başarılı !");
           setTimeout(
-            () => this.router.navigate(["applicationImageCategory"]),
+            () => this.router.navigate(["admin/applicationImageCategory"]),
             1000
           );
         } else {

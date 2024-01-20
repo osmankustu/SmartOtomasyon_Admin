@@ -62,7 +62,7 @@ export class UpdateProductCategoryComponent implements OnInit {
       this.productCategoryService.Update(command).subscribe(
         (response) => {
           this.toastrService.success(response.message, "Başarılı !");
-          setTimeout(() => this.router.navigate(["products"]), 1000);
+          setTimeout(() => this.router.navigate(["admin/products"]), 1000);
         },
         (responseError) => {
           this.toastrService.error(responseError.message, "Bir Hata Oluştu !");

@@ -51,7 +51,7 @@ export class AddAboutComponent implements OnInit {
       var command = Object.assign(this.aboutAddForm.value);
       this.aboutService.Add(command).subscribe(response=>{
         this.toastrService.success(response.message,"Başarılı !");
-        setTimeout(()=>this.router.navigate(["about"]),1000);
+        setTimeout(()=>this.router.navigate(["admin/about"]),1000);
       },responseError=>{
         this.toastrService.error(responseError.message,"Bir Hata Oluştu !");
       })

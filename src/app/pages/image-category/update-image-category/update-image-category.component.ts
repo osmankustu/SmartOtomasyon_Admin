@@ -63,7 +63,7 @@ export class UpdateImageCategoryComponent implements OnInit {
         (response) => {
           this.toastrService.success(response.message, "Başarılı !");
           setTimeout(
-            () => this.router.navigate(["applicationImageCategory"]),
+            () => this.router.navigate(["admin/applicationImageCategory"]),
             1000
           );
         },

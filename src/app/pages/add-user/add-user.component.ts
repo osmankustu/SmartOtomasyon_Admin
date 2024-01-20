@@ -37,6 +37,7 @@ export class AddUserComponent implements OnInit {
       let command = Object.assign(this.userAddForm.value);
       this.authService.register(command).subscribe(resposne=>{
         this.toastrService.success(resposne.message,"Başarılı !");
+        setTimeout(()=>this.router.navigate(["admin/dashboard"]),1000);
       },responseError=>{
         this.toastrService.error(responseError.message,"Bir Hata Oluştu!");
       })

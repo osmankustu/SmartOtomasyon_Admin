@@ -30,9 +30,9 @@ export class AddReferanceComponent implements OnInit {
   creareAddForm(){
     this.referanceAddForm = this.formBuilder.group({
       title:["",Validators.required],
-      description:["boş bırakılabilir"],
+      description:["",Validators.required],
       logoUri:["",Validators.required],
-      siteUri:["boş bırakılabilir"],
+      siteUri:["",Validators.required],
       pageId:["",Validators.required]
     })
   }
@@ -49,7 +49,7 @@ export class AddReferanceComponent implements OnInit {
       this.referanceService.Add(command).subscribe(response=>{
         if(response.success){
           this.toastrService.success(response.message,"BAŞARILI");
-          setTimeout(()=>this.router.navigate(["referance"]),1000);
+          setTimeout(()=>this.router.navigate(["admin/referance"]),1000);
         }
       })
     }else{

@@ -66,7 +66,7 @@ export class UpdateAboutComponent implements OnInit {
       let command = Object.assign(this.aboutUpdateForm.value);
       this.aboutService.Update(command).subscribe(response=>{
         this.toastrService.success(response.message,"Başarılı !");
-        setTimeout(()=>this.router.navigate(["about"]),1000);
+        setTimeout(()=>this.router.navigate(["admin/about"]),1000);
       },responseError=>{
         this.toastrService.error(responseError.message,"Bir Hata Oluştu !");
       })
